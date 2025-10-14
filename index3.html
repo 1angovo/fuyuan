@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!--适配手机浏览器-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我们-福元的世界</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "微软雅黑", sans-serif;
+        }
+
+        /* 顶部横幅 */
+        .header-banner {
+            position: relative;
+            height: 250px;
+            background: url("images/fuyuan3.jpg") no-repeat center/cover; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .banner-title {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+        }
+
+        /* 导航栏 */
+        .navbar {
+            background-color: #fceabb;
+            padding: 15px 0;
+            text-align: center;
+            border-bottom: 1px solid #f8b500;
+        }
+        .navbar a {
+            text-decoration: none;
+            color: #8b5a2b;
+            margin: 0 20px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        .navbar a:hover {
+            color: #d97634;
+        }
+
+        /* 主体内容-对称布局 */
+        .main-content {
+            background-color: #fff8e6;
+            padding: 40px 10%;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        /* 左侧表单区域 */
+        .form-box {
+            background-color: #fff5e0;
+            border: 1px solid #fceabb;
+            border-radius: 8px;
+            padding: 20px;
+            width: 300px;
+        }
+        .form-title {
+            color: #8b5a2b;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            color: #8b5a2b;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #fceabb;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        .form-group button {
+            background-color: #f8b500;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .form-group button:hover {
+            background-color: #e6a500;
+        }
+
+        /* 右侧图片区域 */
+        .image-box {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        .image-box img {
+            width: 200px;
+            height: auto;
+            border: 1px solid #fceabb;
+            border-radius: 8px;
+        }
+
+        /* 右侧诗歌区域（与左侧对称） */
+        .poetry-box {
+            background-color: #fff5e0;
+            border: 1px solid #fceabb;
+            border-radius: 8px;
+            padding: 20px;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        .poetry-title {
+            color: #8b5a2b;
+            font-size: 20px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .poetry-content {
+            color: #5d4037;
+            font-size: 14px;
+            line-height: 1.8;
+            text-align: center;
+            white-space: pre-wrap; /* 保留诗歌换行 */
+        }
+
+        /* 页脚 */
+        .footer {
+            background-color: #8b5a2b;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <header class="header-banner">
+        <h1 class="banner-title">欢迎来到福元的世界</h1>
+    </header>
+
+    <nav class="navbar">
+        <a href="index.html">首页</a >
+        <a href="index2.html">福元的日常瞬间</a >
+        <a href="#">支持福元</a >
+        <a href="index3.html">联系我们</a >
+    </nav>
+
+    <div class="main-content">
+        <!-- 左侧表单 -->
+        <div class="form-box">
+            <h2 class="form-title">给福元留言</h2>
+            <div class="form-group">
+                <label for="name">你的名字</label>
+                <input type="text" id="name" placeholder="请输入名字">
+            </div>
+            <div class="form-group">
+                <label for="email">电子邮箱</label>
+                <input type="email" id="email" placeholder="请输入邮箱">
+            </div>
+            <div class="form-group">
+                <label for="message">留言内容</label>
+                <textarea id="message" placeholder="请写下你的留言"></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit">发送留言</button>
+            </div>
+        </div>
+
+          <script>
+        // 获取DOM元素
+        const input = document.getElementById('messageInput');
+        const btn = document.getElementById('submitBtn');
+        const list = document.getElementById('messageList');
+
+        // 页面加载时获取所有留言
+        window.onload = getMessages;
+
+        // 提交留言
+        btn.onclick = async () => {
+            const content = input.value.trim();
+            if (!content) return alert('请输入留言内容！');
+            
+            // 发送请求到后端
+            await fetch('http://localhost:3000/addMessage', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ content, time: new Date().toLocaleString() })
+            });
+            
+            input.value = ''; // 清空输入框
+            getMessages(); // 重新获取并显示留言
+        };
+
+        // 获取所有留言并显示
+        async function getMessages() {
+            const res = await fetch('http://localhost:3000/getMessages');
+            const messages = await res.json();
+            
+            // 渲染留言列表
+            list.innerHTML = messages.map(msg => 
+                `<li>${msg.time}：${msg.content}</li>`
+            ).join('');
+        }
+    </script>
+
+        <!-- 右侧区域-->
+        <div class="image-box">
+            <img src="images/logo.jpg" alt=""> 
+        </div>
+
+        <div class="poetry-box">
+            <h2 class="poetry-title">肥猫之诗</h2>
+            <div class="poetry-content">
+远看大肥猫，
+近看肥猫大。
+肥猫真是大，
+真是大肥猫。
+
+    ——小琰赠
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>| 福元的世界 |</p >
+    </footer>
+</body>
+</html>

@@ -1,0 +1,104 @@
+/* 顶部横幅 */
+.header-banner {
+    position: relative;
+    height: 250px; /* 与其他页面保持一致的高度，可根据需求调整 */
+    background: url("images/fuyuan3.jpg") no-repeat center/cover; /* 替换为你的横幅图路径 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.banner-title {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.header-banner img {
+    width: 100%;
+    height: 300px; /* 统一高度 */
+    object-fit: cover; /* 保持比例并填满区域，多余部分裁剪 */
+}
+
+/* 导航栏（完全保留原有样式） */
+.navbar {
+    background-color: #fceabb;
+    padding: 15px 0;
+    text-align: center;
+    border-bottom: 1px solid #f8b500;
+}
+.navbar a {
+    text-decoration: none;
+    color: #8b5a2b;
+    margin: 0 20px;
+    font-size: 16px;
+    font-weight: 500;
+}
+.navbar a:hover {
+    color: #d97634;
+}
+
+/* 九宫格布局 + 照片 hover 动画 */
+.photo-container {
+    max-width: 1200px;
+    margin: 40px auto; /* 水平居中 */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    padding: 10px;
+}
+.photo-item {
+    overflow: hidden; /* 隐藏放大时的溢出部分 */
+    border-radius: 4px; /* 可选：图片圆角 */
+}
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s; /* 动画过渡效果 */
+}
+.photo-item:hover img {
+    transform: scale(1.2); /*  hover 时放大1.2倍 */
+}
+
+/* 原有样式保持不变... */
+/* 响应式布局：屏幕宽度 < 768px 时（手机端） */
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column; /* 垂直排列 */
+    align-items: center; /* 水平居中 */
+    gap: 20px; /* 减少间距 */
+    padding: 20px 5%; /* 减少左右内边距 */
+  }
+
+  .form-box, .poetry-box {
+    width: 100%; /* 占满屏幕宽度 */
+    max-width: 400px; /* 限制最大宽度，避免太宽 */
+  }
+
+  .image-box img {
+    width: 150px; /* 手机端缩小图片 */
+  }
+
+  .navbar a {
+    margin: 0 10px; /* 手机端减少导航链接间距 */
+    font-size: 14px;
+  }
+}
+
+/* 页脚归位 */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #fff8e6;
+}
+.footer {
+    background-color: #8b5a2b;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: auto; /* 推到页面底部 */
+}

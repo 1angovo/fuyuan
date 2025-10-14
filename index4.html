@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!--适配手机浏览器-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!--链接css文件-->
+    <link rel="stylesheet" href="style4.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欢迎来到福元的世界</title>
+    <style>
+        /*导航条*/
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "微软雅黑", sans-serif;
+        }
+
+        .header-banner {
+            position: relative;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .header-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 保持图片比例并填满区域 */
+        }
+        .banner-title {
+            position: absolute;
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            z-index: 1;
+        }
+
+        .navbar {
+            background-color: #fceabb;
+            padding: 15px 0;
+            text-align: center;
+            border-bottom: 1px solid #f8b500;
+        }
+        .navbar a {
+            text-decoration: none;
+            color: #8b5a2b;
+            margin: 0 20px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        .navbar a:hover {
+            color: #d97634;
+        }
+
+        .main-content {
+            background-color: #fff8e6;
+            padding: 40px 10%;
+        }
+        .section-title {
+            text-align: center;
+            color: #8b5a2b;
+            font-size: 24px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: #f8b500;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+        .card-title {
+            color: #8b5a2b;
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        .card-text {
+            color: #5d4037;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        .card-image {
+            width: 100%;
+            border-radius: 6px;
+        }
+
+        .footer {
+            background-color: #8b5a2b;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 14px;
+        }
+
+        /*商品按钮*/
+        .product-card h3 {
+            color: #f8b500;
+            margin-bottom: 10px;
+        }
+        .product-card .price {
+            color: #d97634;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .product-card .btn {
+            display: inline-block;
+            background-color: #d97634;/*按钮颜色*/
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        .product-card .btn:hover {
+            background-color: #f8b500; /*  hover 时加深颜色 */
+        }
+
+         /* 产品卡片容器（网格布局） */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4列布局 */
+            gap: 20px;/*商品格间距*/
+            padding: 0 10px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* 单个产品卡片样式 */
+        .product-card {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .product-card img {
+            width: 100%;
+            height: 180px; /* 商品图高度，保持正方形可设为100% */
+            object-fit: cover; /* 保持图片比例 */
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <header class="header-banner">
+        <img src="images/fuyuan3.jpg" alt="金渐层小猫">
+        <h1 class="banner-title">欢迎来到福元的世界</h1>
+    </header>
+
+     <!--超链接跳转-->
+    <nav class="navbar">
+        <a href="index.html">首页</a >
+        <a href="index2.html">福元的日常瞬间</a >
+        <a href="index4.html">支持福元</a >
+        <a href="index3.html">联系我们</a >
+    </nav>
+
+    <!--主体-->
+    <!-- 产品标题 -->
+    <div class="product-title">
+        <h2>猫咪玩具</h2>
+    </div>
+    <!-- 新品网格 -->
+    <div class="product-grid">
+        <div class="product-card">
+            <img src="images/1.jpg" alt="椰子树猫抓板">
+            <h3>猫抓板</h3>
+            <p class="price">¥59</p >
+            <a href="https://e.tb.cn/h.SSdM1jFDepMC2Dk?tk=dGu3f0JXsiC" class="btn">查看详情</a >
+        </div>
+
+        <div class="product-card">
+            <img src="images/2.jpg" alt="逗猫棒">
+            <h3>逗猫棒</h3>
+            <p class="price">¥5.9</p >
+            <a href="https://e.tb.cn/h.ShFBrOTiP6D919t?tk=yarTf0rZGNz" class="btn">查看详情</a >
+        </div>
+
+        <div class="product-card">
+            <img src="images/3.jpg" alt="仿真玩偶">
+            <h3>仿真玩偶</h3>
+            <p class="price">¥3.64</p >
+            <a href="https://e.tb.cn/h.SSTSjHgz0EyHqjk?tk=9VCDf0rXuax" class="btn">查看详情</a >
+        </div>
+
+        <div class="product-card">
+            <img src="images/4.jpg" alt="逗猫盒子">
+            <h3>逗猫盒子</h3>
+            <p class="price">¥9.8</p >
+            <a href="https://e.tb.cn/h.SSWHaql0kYieOe2?tk=gaOYf0rgcH0" class="btn">查看详情</a >
+        </div>
+    </div>
+
+    <!-- 产品标题 -->
+    <div class="product-title">
+        <h2>猫咪食品</h2>
+    </div>
+    <!-- 新品网格 -->
+    <div class="product-grid">
+        <div class="product-card">
+            <img src="images/5.jpg" alt="">
+            <h3>肉松冻干碎</h3>
+            <p class="price">¥62.74</p >
+            <a href="https://e.tb.cn/h.ShEeNyDFoihalHo?tk=e3Wpf0IVBPI" class="btn">查看详情</a >
+        </div>
+
+        <div class="product-card">
+            <img src="images/6.jpg" alt="鸡小胸冻干">
+            <h3>鸡小胸冻干</h3>
+            <p class="price">¥15.444</p >
+            <a href=" https://e.tb.cn/h.SSzHzIcmfcSbS5C?tk=BLBJf0IXzQn" class="btn">查看详情</a >
+        </div>
+
+        <div class="product-card">
+            <img src="images/7.jpg" alt="彩虹奶昔">
+            <h3>彩虹奶昔</h3>
+            <p class="price">¥27.9</p >
+            <a href="https://e.tb.cn/h.SSTSjHgz0EyHqjk?tk=9VCDf0rXuax" class="btn">查看详情</a >
+        </div>
+
+        <div class="product-card">
+            <img src="images/8.jpg" alt="猫咪罐头">
+            <h3>猫咪罐头</h3>
+            <p class="price">¥19.8</p >
+            <a href="https://e.tb.cn/h.ShE2ibfrI7AKpAe?tk=ES35f0I3fTG" class="btn">查看详情</a >
+        </div>
+    </div>
+
+    </main>
+
+
+
+    
+
+    <footer class="footer">
+        <p>| 福元的世界 |</p >
+    </footer>
+</body>
+</html>
